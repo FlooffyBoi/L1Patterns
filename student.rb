@@ -2,9 +2,11 @@ class Student
   attr_accessor :surname,:name,:middle_name,:git
   attr_reader :id
   @@next_id = 0
-  def initialize( surname, name, middle_name="", phone="", tg = "",email="",git="")
-    @id = @@next_id
-    @@next_id+=1
+  def initialize( surname, name, middle_name="", phone="", tg = "",email="",git="", id=nil)
+    if(id==nil)
+      @id = @@next_id
+      @@next_id+=1  
+    end
     @surname = surname
     @name = name
     @middle_name = middle_name
@@ -136,19 +138,19 @@ class Student
     return str
   end
   def short_info
-    str = "ID: #{@id}, Initials: #{last_name_initials}, "
+    str = "#{@id}, #{last_name_initials}, "
     if(@phone!="")
-      str+="phone: #{@phone}, "
+      str+="#{@phone}, "
     else
       if(@email!="")
-        str+="email: #{@email}, "
+        str+="#{@email}, "
       else
         if(@tg!="")
-          "tg: #{@tg}, "
+          "#{@tg}, "
         end
       end
     end
-    str+="git: #{@git}"
+    str+="#{@git}"
   end
   def has_git?
     return @git!=""
