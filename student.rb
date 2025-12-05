@@ -2,7 +2,7 @@ class Student
   attr_accessor :surname,:name,:middle_name,:git
   attr_reader :id
   @@next_id = 0
-  def initialize( surname, name, middle_name="", phone="", tg = "",email="",git="", id=nil)
+  def initialize( surname:, name:, middle_name:"", phone:"", tg: "",email:"",git:"", id:nil)
     if(id==nil)
       @id = @@next_id
       @@next_id+=1  
