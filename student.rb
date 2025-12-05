@@ -103,7 +103,7 @@ class Student
     return regex.match?(tg)
   end
   def valid_git?(git)
-    regex = /^https:\/\/github.com\/[A-Za-z0-9_]/
+    regex = /^https:\/\/github.com\/[A-Za-z0-9_]+/
     return regex.match?(git)
   end
   
